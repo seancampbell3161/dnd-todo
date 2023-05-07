@@ -1,12 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { Image } from 'react-native';
 import { Cat } from './Cat';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
       <Text>Hello world</Text>
+      <Image
+        source={{uri: 'https://pusheen.com/wp-content/themes/pusheen-custom/img/about-pusheen.png'}}
+        style={{width: 200, height: 200}}
+      >
+      </Image>
       <TextInput
         style={{
           height: 40,
@@ -16,7 +21,7 @@ export default function App() {
           borderWidth: 1,
         }}></TextInput>
       <StatusBar style="auto" />
-      <Cat />
+      <Cat name="Pusheen"/>
     </View>
   );
 }
