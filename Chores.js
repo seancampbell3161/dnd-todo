@@ -42,6 +42,8 @@ export const Chores = () => {
                 width: 200,
                 padding: 10,
                 borderWidth: 1,
+                backgroundColor: 'rgba(52, 52, 52, 0.8)',
+                color: 'white'
                 }}
                 onChange={ (text) => {
                     setChore(text.nativeEvent.text);
@@ -51,6 +53,7 @@ export const Chores = () => {
                 value={textValue}
             >
             </TextInput>
+            <View style={{marginTop: 10}}></View>
             <Button
                 onPress={ () => {
                     const newChore = {key: chore}
@@ -65,15 +68,16 @@ export const Chores = () => {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#fff',
+    //   flex: 1,
+    //   backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
     },
     item: {
         padding: 10,
-        fontSize: 18,
-        height: 44,
+        fontSize: 24,
+        height: 50,
+        color: 'white'
       },
     itemContainer: {
         flexDirection: 'row'
