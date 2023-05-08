@@ -9,11 +9,12 @@ export default function App() {
     <View style={styles.container}>
       <Image
         source={{uri: 'https://pusheen.com/wp-content/themes/pusheen-custom/img/about-pusheen.png'}}
-        style={{width: 200, height: 200}}
+        style={{width: 200, height: 200, marginTop: 50}}
       >
       </Image>
       <Cat name="Pusheen"/>
       <Chores />
+      <View style={{marginBottom: 50}}></View>
       <StatusBar style="auto" />
     </View>
   );
