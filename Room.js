@@ -1,9 +1,8 @@
-import React from "react";
-import { View, TextInput, FlatList, Button, StyleSheet, Text, Pressable, SectionList } from 'react-native';
+import React from 'react';
 import { useState, useCallback } from 'react';
-import { Room } from './Room';
+import { Text, FlatList, View, TextInput, Button, StyleSheet, Pressable } from 'react-native';
 
-export const Chores = () => {
+export const Room = (props) => {
     const [chores, setChores] = useState([]);
     const [chore, setChore] = useState('');
     const [textValue, onChangeText] = React.useState('');
@@ -12,12 +11,10 @@ export const Chores = () => {
         const filteredData = chores.filter(c => c.key !== key);
         setChores(filteredData);
     }
-    const [rooms, setRooms] = useState([]);
-    const [newRoomName, setNewRoomName] = useState('');
 
     return (
-        <View style={styles.container}>
-            <View>{rooms}</View>
+        <View>
+            <Text>This is a room named {props.name}</Text>
             {/* <FlatList 
                 data={chores}
                 keyExtractor={(item, index) => item.key}
@@ -37,59 +34,6 @@ export const Chores = () => {
                     </View>
                 }
             /> */}
-
-            {/* <SectionList
-                    sections={[
-                    {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
-                    {
-                        title: 'J',
-                        data: [
-                        'Jackson',
-                        'James',
-                        'Jillian',
-                        'Jimmy',
-                        'Joel',
-                        'John',
-                        'Julie',
-                        ],
-                    },
-                    ]}
-                    renderItem={({item}) =>  <Text style={styles.item}>{item}</Text>}
-                    renderSectionHeader={({section}) => (
-                    <Text style={styles.sectionHeader}>{section.title}</Text>
-                    )}
-                    keyExtractor={item => `basicListEntry-${item}`}
-            /> */}
-
-            <TextInput
-                style={{
-                height: 40,
-                borderColor: 'gray',
-                width: 200,
-                padding: 10,
-                borderWidth: 1,
-                backgroundColor: 'rgba(52, 52, 52, 0.8)',
-                color: 'white'
-                }}
-                onChange={ (text) => {
-                    setNewRoomName(text.nativeEvent.text);
-                    } 
-                }
-                onChangeText={text => onChangeText(text)}
-                value={textValue}
-            >
-            </TextInput>
-            <View style={{marginTop: 10}}></View>
-            <Button
-                onPress={ () => {
-                    const newRoom = <Room name={newRoomName}></Room>;
-                    setRooms([...rooms, newRoom]);
-                    console.log(newRoom);
-                    console.log(rooms);
-                    clearInput();
-                }}
-                title="Add Room"
-            />
 
             {/* <TextInput
                 style={{
@@ -119,7 +63,8 @@ export const Chores = () => {
                 title="Add Chore"
             /> */}
         </View>
-    )
+   
+    );
 }
 
 const styles = StyleSheet.create({
